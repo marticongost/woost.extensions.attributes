@@ -1,0 +1,8 @@
+
+[woost.models.settings]
+
+    [x_attributes_language]
+    ca: Idioma pels atributs
+    es: Idioma para los atributos
+    en: Attributes language
+
