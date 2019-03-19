@@ -2,17 +2,15 @@
 
 .. moduleauthor:: Martí Congost <marti.congost@whads.com>
 """
-from cocktail.translations import translations
 from woost.models import ExtensionAssets
 from .attribute import Attribute
 
-translations.load_bundle("woost.extensions.attributes.installation")
-
-assets = ExtensionAssets("attributes")
 
 def create_default_attributes():
 
-    assets.new(
+    assets = ExtensionAssets("attributes")
+
+    assets.require(
         Attribute,
         "default_attributes.publishable",
         title = assets.TRANSLATIONS,
@@ -21,7 +19,7 @@ def create_default_attributes():
         code = "value = publishable"
     )
 
-    assets.new(
+    assets.require(
         Attribute,
         "default_attributes.type",
         title = assets.TRANSLATIONS,
@@ -29,7 +27,7 @@ def create_default_attributes():
         code = "value = publishable.__class__"
     )
 
-    assets.new(
+    assets.require(
         Attribute,
         "default_attributes.path",
         title = assets.TRANSLATIONS,
@@ -37,7 +35,7 @@ def create_default_attributes():
         code = "value = reversed(list(app.ascend_navigation()))"
     )
 
-    assets.new(
+    assets.require(
         Attribute,
         "default_attributes.locale",
         title = assets.TRANSLATIONS,
@@ -47,7 +45,7 @@ def create_default_attributes():
                "value = get_language()"
     )
 
-    assets.new(
+    assets.require(
         Attribute,
         "default_attributes.role",
         title = assets.TRANSLATIONS,
@@ -56,7 +54,7 @@ def create_default_attributes():
         code = "value = list(app.user.iter_roles())"
     )
 
-    assets.new(
+    assets.require(
         Attribute,
         "default_attributes.target",
         title = assets.TRANSLATIONS,
